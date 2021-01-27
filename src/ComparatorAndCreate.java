@@ -1,11 +1,25 @@
 class ComparatorAndCreate {
-    int countComparator(int[] array) {
-        int n = 0;
-        if (array[n] > array[n + 1]) {
-            return (int) Math.pow((array.length - 1), 2);
-        } else {
-            return array.length - 1;
+    public String comparisons(int[] array) {
+        int count1 = 0;
+        int count2 = 0;
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = 0; j < array.length - i - 1; j++) {
+                if ((array[i] > array[i + 1])) {
+                    int temp = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = temp;
+                    count1++;
+                }
+            }
+            count2++;
         }
+        String print;
+        if (count1 != 0) {
+            print = Integer.toString(count1 * count2);
+        } else {
+            print = Integer.toString(count2);
+        }
+        return print;
     }
 
     public int[] createTableFiveToOne() {

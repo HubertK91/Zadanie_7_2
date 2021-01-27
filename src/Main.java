@@ -28,21 +28,18 @@ class Main {
         ComparatorAndCreate comparator = new ComparatorAndCreate();
 
         System.out.println("Liczba porównań dla tablicy: " + Arrays.toString(comparator.createTableOneToFive()) +
-                " to:" + comparator.countComparator(comparator.createTableOneToFive()));
+                " to:" + comparator.comparisons(comparator.createTableOneToFive()));
         System.out.println("Liczba porównań dla tablicy: " + Arrays.toString(comparator.createTableFiveToOne()) +
-                " to:" + comparator.countComparator(comparator.createTableFiveToOne()));
-        System.out.println("Liczba porównań dla tablicy: " + printOneHundredToOne() +
-                " to:" + comparator.countComparator(comparator.createTableOneHundredToOne()));
-        System.out.println("Liczba porównań dla tablicy: " + printOneToNinetyNine() +
-                " to:" + comparator.countComparator(comparator.createTableOneToNinetyNine()));
+                " to:" + comparator.comparisons(comparator.createTableFiveToOne()));
+        System.out.println("Liczba porównań dla tablicy: " + printLongTable(comparator.createTableOneHundredToOne()) +
+                " to:" + comparator.comparisons(comparator.createTableOneHundredToOne()));
+        System.out.println("Liczba porównań dla tablicy: " + printLongTable(comparator.createTableOneToNinetyNine()) +
+                " to:" + comparator.comparisons(comparator.createTableOneToNinetyNine()));
     }
 
-    static String printOneHundredToOne() {
-        return "[100, 99, ..., 2, 1]";
-    }
-
-    static String printOneToNinetyNine() {
-        return "[1, 2, ..., 98, 99]";
+    static String printLongTable(int[] array) {
+        return "[" + array[0] + ", " + array[1] + ", ..., " + array[array.length - 2] + ", "
+                + array[array.length - 1] + "]";
     }
 
     static int[] bubbleSort(int[] array) {
